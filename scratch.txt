@@ -1,0 +1,4 @@
+dogs = [
+  {'name': 'Theo', 'breed': 'mix', 'description': 'black and white wiggle butt', 'age': 5},
+  {'name': 'Evergreen', 'breed': 'German Shepard, Australian Cattle Dog', 'description': 'anxious, but hard working and loyal', 'age': 2},
+]
