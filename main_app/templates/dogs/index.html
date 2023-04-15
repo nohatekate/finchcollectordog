@@ -5,7 +5,7 @@
 
 {% for dog in dogs %}
     <div>
-        <a href="/dogs/{{ dog.id }}">
+        <a href="{% url 'detail' dog.id %}">
             <div>
                 <h3>{{ dog.name }}</h3>
                 <p>Breed: {{ dog.breed }}</p>
