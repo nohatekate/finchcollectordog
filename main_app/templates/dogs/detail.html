@@ -20,11 +20,11 @@
     <a href="{% url 'dogs_delete' dog.id %}">Delete</a>
 </div>
 <div>
-    <form method="POST">
-        {% csrf_token %}
-        <!-- Render the inputs -->
-        {{ feeding_form.as_p }}
-        <input type="submit" class="btn" value="Add Feeding">
+    <form action="{% url 'add_feeding' dog.id %}" method="POST">
+    {% csrf_token %}
+    <!-- Render the inputs -->
+    {{ feeding_form.as_p }}
+    <input type="submit" class="btn" value="Add Feeding">
     </form>
     <table>
         <thead>
