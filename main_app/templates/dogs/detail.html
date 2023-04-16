@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Dog Details</h1>
+<h1 class="cyan-text text-darken-3 center-align">Dog Details</h1>
 
 
-<div>
-    
-    <h4>{{ dog.name }}</h4>
+<div class="card center-align flow-text">
+    <div class="card-content">
+    <h4 class="cyan-text text-darken-3">{{ dog.name }}</h4>
     <p>Breed: {{ dog.breed }}</p>
     <p>Description: {{ dog.description|linebreaks }}</p>
     {% if dog.age > 0 %}
@@ -15,23 +15,27 @@
     <p>Age: Puppy</p>
     {% endif %}
 </div>
-<div>
-    <a href="{% url 'dogs_update' dog.id %}">Edit</a>
-    <a href="{% url 'dogs_delete' dog.id %}">Delete</a>
 </div>
+<div class="card-action center-align">
+    <a href="{% url 'dogs_update' dog.id %}" class="but-floating btn-small">Edit</a>
+    <a href="{% url 'dogs_delete' dog.id %}" class="but-floating btn-small">Delete</a>
+</div>
+
 <div>
     <form action="{% url 'add_feeding' dog.id %}" method="POST">
     {% csrf_token %}
     <!-- Render the inputs -->
     {{ feeding_form.as_p }}
-    <input type="submit" class="btn" value="Add Feeding">
+    <button type="submit" class="btn btn-small waves-effect waves-light ">Add Feeding</button>
     </form>
+    
     {% if dog.fed_for_today %}
         <div>{{dog.name}} has been fed all meals for today</div>
     {% else %}
         <div>{{dog.name}} might be hungry</div>
     {% endif %}
-    <table>
+    
+    <table class="striped">
         <thead>
             <tr><th>Date</th><th>Meal</th></tr>
         </thead>
@@ -44,6 +48,6 @@
             {% endfor %}
         </tbody>
     </table>
-    </div>
+</div>
 
 {% endblock %}
