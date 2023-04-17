@@ -4,9 +4,9 @@
 <h1 class="cyan-text text-darken-3 center-align">Dog List</h1>
 
 {% for dog in dogs %}
-    <div class="hoverable collection">
-        <a href="{% url 'detail' dog.id %}" class="collection-item">
-            <div class="cyan-text text-darken-1">
+    <div class="card hoverable collection">
+        <a href="{% url 'detail' dog.id %}" class="card- content collection-item">
+            <div class="card-content cyan-text text-darken-1">
                 <h3>{{ dog.name }}</h3>
                 <p>Breed: {{ dog.breed }}</p>
                 <p>Description: {{ dog.description }}</p>
